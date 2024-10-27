@@ -59,7 +59,7 @@ app.use((req, res) => {
 
 //general error handler
 app.use((err, req, res, next) => {
-  res.status(err.status || 500).json({ error: err.message });
+  res.status(err.status || 500).json({ error: err.message});
 });
 
 app.listen(PORT, () => {

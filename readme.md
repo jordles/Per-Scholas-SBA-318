@@ -1,8 +1,12 @@
 # Per Scholas SBA 318 Express Server Application
 
+I MADE MY VERY OWN FIRST API!!! 🎉🎉 I really enjoyed this assignment. 
+
 For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience.  
 
-For my tester, when using post on users, feel free to copy and paste this sample body for your convenience: 
+I made a middleware folder, and added a middleware that fetches a random salt, and uses that salt in my other middleware where i hash the password. Both these results are used in my POST request for users. 
+
+For my tester, when using POST request for <code>/users</code>, feel free to copy and paste this sample body for your convenience: 
 <pre>{
   "name": {
     "first": "Tester",
@@ -12,7 +16,8 @@ For my tester, when using post on users, feel free to copy and paste this sample
   "email": "ps@example.com",
   "username": "perscholas123",
   "password": "12345"
-}</pre>
+}
+</pre>
 ## Requirements/Tracking
 
 | Requirement | Weight | Finished |
