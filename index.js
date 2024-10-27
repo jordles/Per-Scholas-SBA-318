@@ -6,6 +6,7 @@ import postsRouter from "./routes/posts.js";
 /* ------------------------------------ - ----------------------------------- */
 
 const app = express();
+app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());

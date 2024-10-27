@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logins</title>
+</head>
+<body>
+  <h1>Login and User Details</h1>
+  <section>
+    <% logins.forEach(login => { %>
+      <% const user = users.find(user => user.id === login.id); %>
+      <article>
+        <div>
+          <p><strong>First Name:</strong> <%= user.name.first %></p>
+          <p><strong>Last Name:</strong> <%= user.name.last %></p>
+          <p><strong>Display Name:</strong> <%= user.name.display %></p>
+        </div>
+        <div>
+          <p><strong>SHA256:</strong> <%= login.sha256 %></p>
+          <p><strong>Email:</strong> <%= login.email %></p>
+        </div>
+      </article>
+    <% }); %>
+  </section>
+</body>
+</html>
