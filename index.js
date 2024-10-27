@@ -2,6 +2,7 @@ import express from "express";
 import "dotenv/config";
 import usersRouter from "./routes/users.js";
 import loginsRouter from "./routes/logins.js";
+import postsRouter from "./routes/posts.js";
 /* ------------------------------------ - ----------------------------------- */
 
 const app = express();
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use("/users", usersRouter);
 app.use("/logins", loginsRouter);
+app.use("/posts", postsRouter);
 
 app.get("/", (req, res) => {
 	// res.send("Welcome to the Root API.");

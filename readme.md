@@ -6,7 +6,7 @@ For logins.js, it is supposed to be locked under an admin key but according to t
 
 I made a middleware folder, and added a middleware that fetches a random salt, and uses that salt in my other middleware where i hash the password. Both these results are used in my POST request for users. 
 
-For my tester, when using POST request for <code>/users</code>, feel free to copy and paste this sample body for your convenience: 
+For my tester, when using POST requests for <code>/users /logins /posts</code>, feel free to copy and paste these sample bodies for your convenience: 
 <pre>{
   "name": {
     "first": "Tester",
@@ -18,6 +18,15 @@ For my tester, when using POST request for <code>/users</code>, feel free to cop
   "password": "12345"
 }
 </pre>
+<pre>
+{
+    "id": 1,
+    "userId": 3,
+    "title": "What do you think about Root's UX? ",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sollicitudin eu libero vitae varius. Fusce ut orci vulputate, suscipit libero sed, porttitor lectus. Suspendisse sed sapien at lectus imperdiet porta sit amet eget ex. Sed semper, lectus eu vulputate euismod, sem nibh luctus nunc, ac lacinia tellus mi ultrices quam. Pellentesque fermentum tincidunt sem at malesuada. Ut turpis sapien, sollicitudin auctor hendrerit eu, posuere eu nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla aliquet massa vel ex fermentum iaculis. In aliquam nunc at consectetur ornare. Aliquam erat volutpat. Nullam facilisis in neque ut auctor. Suspendisse ac felis nisi. Duis tincidunt nibh non nunc aliquam finibus. In eleifend scelerisque neque non elementum. Nullam vel porttitor lorem, ac hendrerit lacus."
+}
+</pre>
+
 ## Requirements/Tracking
 
 | Requirement | Weight | Finished |

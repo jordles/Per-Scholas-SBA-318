@@ -51,6 +51,19 @@ router.post('/', fetchSalt, hashPassword, (req, res) => {
   res.json({newUser, newLogin});
 })
 
+router.patch('/', (req, res, next) => {
+  if(req.query.id){
+    const user = users.find(user => user.id == req.query.id);
+    if(!user) return next();
+    for(const key in req.body){
+      if(key == 'id') return res.status(400).json({ error: "Cannot change id" });
+      user[key] = typeof req.body[key] === 'object' && !Array.isArray(req.body[key]) ? {...user[key], ...req.body[key]} : req.body[key];
+      if(key == 'email') logins.find(login => login.id == req.query.id)[key] = req.body[key];
+    }
+    res.json(user);
+  }
+  else next();
+})
 router.patch('/:id', (req, res, next) => {
   const user = users.find(user => user.id == req.params.id);
   if(!user) return next();
