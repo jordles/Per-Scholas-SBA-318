@@ -3,18 +3,18 @@ const users = [
     id: 1,
     name: {
       first: "Jacky",
-      last: "Yang"
+      last: "Yang",
+      display: "Jordles"
     },
-    username: "jacky1670",
     email: "jackyyang1670@gmail.com",
   },
   {
     id: 2,
     name: {
       first: "Alex",
-      last: "Doe"
+      last: "Doe",
+      display: "Alex Doe"
     },
-    username: "alex123",
     email: "alexdoe123@test.com",
   }
 ];

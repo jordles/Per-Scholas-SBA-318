@@ -1,3 +1,4 @@
+//logins requires admin key access, but for testing convenience (according to rubric guidelines) it will be omitted
 const logins = [
   {
     id: 1,

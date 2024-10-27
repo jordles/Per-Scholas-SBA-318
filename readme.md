@@ -1,5 +1,18 @@
 # Per Scholas SBA 318 Express Server Application
 
+For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience.  
+
+For my tester, when using post on users, feel free to copy and paste this sample body for your convenience: 
+<pre>{
+  "name": {
+    "first": "Tester",
+    "last": "Learner",
+    "display": "Per Scholas"
+  },
+  "email": "ps@example.com",
+  "username": "perscholas123",
+  "password": "12345"
+}</pre>
 ## Requirements/Tracking
 
 | Requirement | Weight | Finished |
