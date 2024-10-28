@@ -3,6 +3,7 @@ import "dotenv/config";
 import usersRouter from "./routes/users.js";
 import loginsRouter from "./routes/logins.js";
 import postsRouter from "./routes/posts.js";
+import checkAdminKey from "./middleware/checkAdminKey.js";
 /* ------------------------------------ - ----------------------------------- */
 
 const app = express();
@@ -12,12 +13,14 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); //parsing request bodies
 app.use(express.urlencoded({ extended: true })); //forms
+
+
 app.use("/users", usersRouter);
-app.use("/logins", loginsRouter);
+app.use("/logins", /* checkAdminKey, */ loginsRouter);
 app.use("/posts", postsRouter);
 
 //create a new user here; a form will be rendered
-app.get("/new", (req, res) => {
+app.get(/^\/new(?:user)?$/i, (req, res) => {
   res.render("newUserForm");
 })
 

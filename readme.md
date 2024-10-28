@@ -3,9 +3,10 @@
 I MADE MY VERY OWN FIRST API!!! 🎉🎉 I really enjoyed this assignment. 
 
 ### Introduction
-Project Support is an open source platform that enable users share causes they're passionate about and actively involved with with the hopes of connecting with other users equally interested in working with them on the given cause.
+This API will be based on my Root Application. It enables users and admin to get the appropriate user information needed and perform CRUD operations. This api allows more functionality for users on Root, like editing user information on settings or being capable of deleting their own account.  
+
 ### API Features
-* Users can signup and view their account details in the Root database. 
+* Users can sign up and view their account details in the Root database. 
 * Admins/Authenticated Users have access the login database, that includes sensitive information. 
 * View your posting history and alter its contents.
 * This API follows RESTful practices, including invoking CRUD operations.
@@ -17,6 +18,7 @@ Project Support is an open source platform that enable users share causes they'r
     │   ├── logins 
     │   └── posts            
     ├── middleware              # Middleware (custom)
+    │   ├── checkAdminKey         # checks for an admin-key on logins/ (unused for testing phase) 
     │   ├── fetchSalt             # fetches a random salt from an api
     │   ├── hashPassword          # hashing my password into sha256
     │   └── userCreated           # add flags onto users created through form submissions for later logic
@@ -35,7 +37,7 @@ Project Support is an open source platform that enable users share causes they'r
     ├── package.json
     └── readme.md
 
-**For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience.**
+**For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience. If tester would like to see if it works, please uncomment the middleware being called with my loginsRouter inside my index.js**
 
 ### Requirements/Tracking
 | Requirement | Weight | Finished |
@@ -59,9 +61,11 @@ Project Support is an open source platform that enable users share causes they'r
 | Commit frequently to the git repository. | 5% | ✅ |
 | Include a README file that contains a description of your application. | 2% | ✅ |
 | Level of effort displayed in creativity, presentation, and user experience. | 5% | ✅ |
+| Include a practical usage of regular expressions within route paths. Note: A forced, arbitrary usage of this technique will not earn you any bonus credit. This must be practical and sensible in order to be considered for credit. <br><br> **Reasoning: I used regex on my form page to ensure my users can get there. The regex ignores casing and accepts the option of adding "user" to the route path for more flexibility and utility.** | +1% | ✅ |
+| Research and effectively use at least one third-party Node package for practical, sensible purposes. This cannot be a package that has been used in examples and lesson materials thus far. Step outside the box and be creative! <br><br> **Reasoning: Instead of using crypto, node's native hashing package, I utilized crypto-js package instead. It reduce my code by a lot and it became a lot more readable when hashing my passwords.** | +1% | ✅ |
 
 ### Testing
-For my tester, when using POST requests for <code>/users /posts</code>, feel free to copy and paste these sample bodies for your convenience:  
+For my tester, when using POST requests for <code>/users</code> and <code>/posts</code>, feel free to copy and paste these sample bodies for your convenience:  
 <pre>{
   "name": {
     "first": "Tester",
@@ -89,6 +93,7 @@ For my tester, when using POST requests for <code>/users /posts</code>, feel fre
 | --- | --- | --- |
 | GET | / | Get a welcome message to the Root API |
 | GET | /new | Create a new user through a user sign up form |
+| GET | /newuser | Create a new user through a user sign up form | 
 
 #### Users
 | HTTP Verbs | Endpoints | Action |
