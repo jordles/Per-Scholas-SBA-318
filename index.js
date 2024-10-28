@@ -10,8 +10,8 @@ app.set('view engine', 'ejs');
 app.use(express.static('styles'));
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //parsing request bodies
+app.use(express.urlencoded({ extended: true })); //forms
 app.use("/users", usersRouter);
 app.use("/logins", loginsRouter);
 app.use("/posts", postsRouter);
@@ -24,41 +24,7 @@ app.get("/new", (req, res) => {
 app.get("/", (req, res) => {
 	// res.send("Welcome to the Root API.");
 	// res.send("Below is the api routes:");
-	res.json({
-		message: "Welcome to the Root API. Below is the api routes:",
-		links: [
-			{
-				href: "/users",
-				rel: "users",
-				type: "GET",
-			},
-			{
-				href: "/users",
-				rel: "users",
-				type: "POST",
-			},
-			{
-				href: "/posts",
-				rel: "posts",
-				type: "GET",
-			},
-			{
-				href: "/posts",
-				rel: "posts",
-				type: "POST",
-			},
-			{
-				href: "/login?admin=",
-				rel: "login",
-				type: "GET",
-			},
-			{
-				href: "/login?admin=",
-				rel: "login",
-				type: "POST",
-			},
-		],
-	});
+  res.send("Welcome to the Root API. Check my readme on github for the endpoints")
 });
 
 //404 error handler

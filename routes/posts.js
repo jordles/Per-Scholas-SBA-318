@@ -25,6 +25,12 @@ router.get("/:userId/:title", (req, res, next) => {
   else next();
 })
 
+router.get("/:userId/:postId", (req, res, next) => {
+  const post = posts.filter(post => post.userId == req.params.userId && post.postId == req.params.postId);
+  if(post) res.json(post);
+  else next();
+})
+
 router.post("/", (req, res) => {
   if(req.body.userId && req.body.title && req.body.content){
     const postNumber = posts.reduce((acc, post) => post.userId == req.body.userId ? acc + 1 : acc, 0);
