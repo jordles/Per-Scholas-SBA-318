@@ -91,7 +91,6 @@ For my tester, when using POST requests for <code>/users /posts</code>, feel fre
 | GET | /new | Create a new user through a user sign up form |
 
 #### Users
-
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
 | GET | /users | Retrieve all users |
@@ -106,7 +105,6 @@ For my tester, when using POST requests for <code>/users /posts</code>, feel fre
 | DELETE | /users:id | Deletes a users information based on id |
 
 #### Logins (Accessible by Admins)
-
 | HTTP Verbs | Endpoints | Action |
 | --- | --- | --- |
 | GET | /logins/view | Renders a list of user information |
@@ -123,6 +121,8 @@ For my tester, when using POST requests for <code>/users /posts</code>, feel fre
 
 
 #### Posts
+| HTTP Verbs | Endpoints | Action |
+| --- | --- | --- |
 | GET | /posts?userId= | Retrieve posts based on userId |
 | GET | /posts?title= | Retrieve posts based on title |
 | GET | /posts?content= | Retrieve posts based on content |
