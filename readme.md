@@ -37,7 +37,7 @@ This API will be based on my Root Application. It enables users and admin to get
     ├── package.json
     └── readme.md
 
-**For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience. If tester would like to see if it works, please uncomment the middleware being called with my loginsRouter inside my index.js**
+**For logins.js, it is supposed to be locked under an admin key but according to the rubric, this should be avoided for testing convenience. If tester would like to see if it works, please uncomment the middleware being called with my loginsRouter inside my index.js** <code>app.use("/logins", /* checkAdminKey, */ loginsRouter);</code>
 
 ### Requirements/Tracking
 | Requirement | Weight | Finished |

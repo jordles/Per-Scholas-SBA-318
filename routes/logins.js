@@ -37,7 +37,7 @@ router.patch("/", (req, res, next) => {
       const login = logins.find(login => login[queryKey] == req.query[queryKey]);
       if(!login) return next();
       for(const key in req.body){
-        if(key == "sha256" || key == "id") return res.status(400).json({ error: `You cannot change this key: ${key}` });
+        if(key == "sha256" || key == "id") return res.status(400).json({ error: `You cannot change this key: ${key}. If you must, you have to delete the user entirely and recreate them.` });
         if(key == "email") users.find(user => (user.id || user.sha256) == req.query[queryKey])[key] = req.body[key];
         login[key] = req.body[key];
       } 
@@ -54,7 +54,7 @@ router.patch("/:identifier", (req, res, next) => {
     ? logins.find(login => login.sha256 === identifier)
     : logins.find(login => login.id == identifier);
   
-  if(!login) next()
+  if(!login) return next()
   for(const key in req.body){
     if(key == "sha256" || key == "id" || key == "salt") return res.status(400).json({ error: `You cannot change this key: ${key}. If you must, you have to delete the user entirely and recreate them` });
     if(key == "email") users.find(user => (user.id || user.sha256) == identifier)[key] = req.body[key];
