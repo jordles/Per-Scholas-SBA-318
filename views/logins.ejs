@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logins</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <h1>Login and User Details</h1>
@@ -15,13 +16,21 @@
           <p><strong>First Name:</strong> <%= user.name.first %></p>
           <p><strong>Last Name:</strong> <%= user.name.last %></p>
           <p><strong>Display Name:</strong> <%= user.name.display %></p>
+          <p><strong>Email:</strong> <%= user.email %></p>
         </div>
         <div>
+          <p><strong>Username:</strong> <%= login.username %></p>
+          <p><strong>Password:</strong> <%= login.password %></p>
           <p><strong>SHA256:</strong> <%= login.sha256 %></p>
-          <p><strong>Email:</strong> <%= login.email %></p>
         </div>
       </article>
     <% }); %>
   </section>
+
+  <script>
+    window.onload = function() {
+      alert("Meant for admin eyes only!!");
+    }
+  </script>
 </body>
 </html>

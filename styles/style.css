@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+article{
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+
+
+

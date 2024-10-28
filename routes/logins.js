@@ -5,6 +5,11 @@ import logins from "../data/logins.js";
 import users from "../data/users.js";
 
 const router = express.Router();
+router.use(express.static('styles'));
+//router to render the logins with user and login data; view template is ejs
+router.get("/view", (req, res) => {
+  res.render("logins", {logins, users})
+})
 
 router.get("/", (req, res, next) => {
   const queries = ["id","username", "password", "email"];

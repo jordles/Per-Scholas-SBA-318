@@ -2,6 +2,7 @@ import crypto from 'crypto'; //native to node
 
 //middleware to hash password into sha256
 const hashPasswordWithSalt = (req, res, next) => {
+  console.log(req.body);
   const { password, salt } = req.body;
 
   if (!password) return res.status(400).json({ error: "Password is required" });

@@ -7,12 +7,19 @@ import postsRouter from "./routes/posts.js";
 
 const app = express();
 app.set('view engine', 'ejs');
+app.use(express.static('styles'));
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/users", usersRouter);
 app.use("/logins", loginsRouter);
 app.use("/posts", postsRouter);
+
+//create a new user here; a form will be rendered
+app.get("/new", (req, res) => {
+  res.render("newUserForm");
+})
 
 app.get("/", (req, res) => {
 	// res.send("Welcome to the Root API.");

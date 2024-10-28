@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New User</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Create New User</h1>
+  <form action="/users" method="POST">
+    Name: <input type="text" name="name[first]" placeholder="First Name" required>
+    <input type="text" name="name[last]" placeholder = "Last Name">
+    <br>
+    Display Name: <input type="text" name="name[display]" placeholder = "Display Name" required>
+    <br>
+    Username: <input type="text" name="username" placeholder = "Username" required>
+    <br>
+    Email: <input type="text" name="email" placeholder= "Email" required>
+    <br>
+    Password: <input type="password" name="password" placeholder = "Password" required>
+    <br>
+    Confirm Password: <input type="password" placeholder = "Confirm Password" required>
+    <br>
+    <input type="submit" value="Create User" />
+  </form>
+</body>
+</html>

@@ -24,15 +24,16 @@ router.get('/:id', (req, res, next) => {
 })
 
 router.post('/', fetchSalt, hashPassword, (req, res) => {
+  console.log(req.body);
   const {name, email, username, password, salt, hashedPassword} = req.body;
-  const valid = name && name.first && name.display && email && username && password;
+  const valid = name.first && name.display && email && username && password;
   if(!valid) res.status(400).json({ error: "Insufficient data" });
 
   const newUser = {
     id: users[users.length - 1].id + 1,
     name: {
       first: name.first,
-      last: name.last || null, //set to null if not provided
+      last: name.last == (undefined || "") ?  null : name.last, //set to null if not provided
       display: name.display
     },
     email
